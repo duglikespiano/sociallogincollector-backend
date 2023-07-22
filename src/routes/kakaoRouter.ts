@@ -9,7 +9,7 @@ router.post('/userinfo', (req: Request, res: Response) => {
 		.get('https://kapi.kakao.com/v2/user/me', {
 			headers: {
 				'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-				Authorization: `Bearer ${req.body.accessToken}`,
+				Authorization: `Bearer ${req.body.kakaoAccessToken}`,
 			},
 		})
 		.then(({ data }) => {

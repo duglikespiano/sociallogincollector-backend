@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const router = Router();
 
-router.post('/userinfo', (req: Request, res: Response) => {
+router.post('/userinfowithouttoken', (req: Request, res: Response) => {
 	const { naverAccessTokenRequestURLWithCode, headers } = req.body;
 	let naverAccessToken: string;
 	axios
@@ -24,7 +24,7 @@ router.post('/userinfo', (req: Request, res: Response) => {
 		});
 });
 
-router.post('/userinfo2', (req: Request, res: Response) => {
+router.post('/userinfowithtoken', (req: Request, res: Response) => {
 	const { naverAccessToken } = req.body;
 	axios
 		.get('https://openapi.naver.com/v1/nid/me', {
