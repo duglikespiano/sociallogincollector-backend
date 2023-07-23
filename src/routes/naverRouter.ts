@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const router = Router();
 
-router.post('/userinfowithouttoken', (req: Request, res: Response) => {
+router.post('/tokenanduserinfo', (req: Request, res: Response) => {
 	const { naverAccessTokenRequestURLWithCode, headers } = req.body;
 	let naverAccessToken: string;
 	axios
@@ -24,7 +24,7 @@ router.post('/userinfowithouttoken', (req: Request, res: Response) => {
 		});
 });
 
-router.post('/userinfowithtoken', (req: Request, res: Response) => {
+router.post('/userinfo', (req: Request, res: Response) => {
 	const { naverAccessToken } = req.body;
 	axios
 		.get('https://openapi.naver.com/v1/nid/me', {
@@ -32,6 +32,22 @@ router.post('/userinfowithtoken', (req: Request, res: Response) => {
 		})
 		.then((data) => {
 			res.status(200).json({ data: data.data, naverAccessToken });
+		})
+		.catch((error) => {
+			console.error(error);
+		});
+});
+
+router.delete('/token', (req: Request, res: Response) => {
+	const { naverAccessTokenRemoveURL } = req.body;
+	console.log(naverAccessTokenRemoveURL);
+	axios
+		.get(naverAccessTokenRemoveURL)
+		.then((data) => {
+			console.log(data.data);
+			if (data.data.result === 'success') {
+				res.status(200).json({ message: 'done' });
+			}
 		})
 		.catch((error) => {
 			console.error(error);
