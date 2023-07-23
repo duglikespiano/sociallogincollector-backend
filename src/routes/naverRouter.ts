@@ -40,7 +40,6 @@ router.post('/userinfo', (req: Request, res: Response) => {
 
 router.delete('/token', (req: Request, res: Response) => {
 	const { naverAccessTokenRemoveURL } = req.body;
-	console.log(naverAccessTokenRemoveURL);
 	axios
 		.get(naverAccessTokenRemoveURL)
 		.then((data) => {

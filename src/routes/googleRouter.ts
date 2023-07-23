@@ -22,4 +22,15 @@ router.post('/userinfo', (req: Request, res: Response) => {
 		.catch((error) => console.log(error));
 });
 
+router.delete('/token', (req: Request, res: Response) => {
+	axios
+		.post(req.body.accessTokkenRevokeURL)
+		.then((response) => {
+			if (response.status === 200) {
+				res.status(200).json({ message: 'token_revoked' });
+			}
+		})
+		.catch((error) => console.log(error));
+});
+
 export default router;
