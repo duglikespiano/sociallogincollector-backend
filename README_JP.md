@@ -1,10 +1,10 @@
-# sociallogincollector_frontend(jp)
+# sociallogincollector_backend(jp)
 
 ##### [한국어 버전은 이 곳을 클릭해주세요](README.md)
 
 ##### [Click here for English version](README_EN.md)
 
-## - Index -
+## - 目次 -
 
 1. 概要
 2. Project 目標

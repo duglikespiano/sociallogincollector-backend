@@ -1,4 +1,4 @@
-# sociallogincollector_frontend(en)
+# sociallogincollector_backend(en)
 
 ##### [한국어 버전은 이 곳을 클릭해주세요](README.md)
 
